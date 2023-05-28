@@ -36,8 +36,8 @@
                                     <label for="exampleInputEmail1" >Видимость</label><br/>
                                     <select name="published" required="required" >
                                         <option value="{{$posts['published']}}">без изменений</option>
-                                        <option value="1">пост видят все</option>
-                                        <option value="0">пост видят только администраторы и модераторы</option>
+                                        <option value="1">публикация: пост видят все</option>
+                                        <option value="0">черновик: пост видят только администраторы и модераторы</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
