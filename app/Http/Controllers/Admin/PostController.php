@@ -13,7 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        //$new_post = new Post();
+        $posts = Post::where('published', '=', '1')->orderBy('created_at', 'desc')->get();
+        return view('admin.category.index', ['posts' => $posts]);
     }
 
     /**
@@ -65,7 +67,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        //dd($post['cat_id']);
+        return view('admin.category.edit', [
+            'posts' => $post,
+        ]);
     }
 
     /**
@@ -73,7 +78,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->cat_id = $request->cat_id;
+        $post->published = $request->published;
+        $post->preview_img = $request->preview_img;
+        $post->save();
+
+        return redirect()->back()->with('success', 'пост был успешно обновлен');
     }
 
     /**
@@ -81,6 +91,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->back()->with('success', 'пост был успешно удален');
     }
 }

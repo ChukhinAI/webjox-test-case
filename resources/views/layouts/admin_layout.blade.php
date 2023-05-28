@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Панель администратора ресурса - @yield('title')</title>
+    <title>Админ-панель - @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -23,23 +25,20 @@
     <link rel="stylesheet" href="/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
+    <link href="/admin/dist/css/colorbox.css" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">Панель управления</span>
+            <img src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                 class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">Админ-панель</span>
         </a>
 
         <!-- Sidebar -->
@@ -54,23 +53,13 @@
                 </div>
             </div>
 
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
+           with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
                         <a href="{{ route('homeAdmin') }}" class="nav-link">
@@ -80,9 +69,8 @@
                             </p>
                         </a>
                     </li>
-
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon far fa-newspaper"></i>
                             <p>
                                 Блог
@@ -96,36 +84,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('posts.index') }}" class="nav-link">
-                                    <p>Редактировать пост</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon far fa-newspaper"></i>
-                            <p>
-                                Создать/удалить пост
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
                                 <a href="{{ route('posts.create') }}" class="nav-link">
-                                    <p>Создать пост</p>
+                                    <p>Добавить пост</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('posts.index') }}" class="nav-link">
-                                    <p>удалить статью</p>
-                                </a>
-                            </li>
-
                         </ul>
                     </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -134,10 +99,11 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content">
+    <div class="content-wrapper">
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -154,6 +120,7 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
+
 </script>
 <!-- Bootstrap 4 -->
 <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -181,6 +148,11 @@
 <script src="/admin/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
+<script type="text/javascript" src="/admin/dist/js/jquery.colorbox-min.js"></script>
+<script src="https://cdn.tiny.cloud/1/jxsqeq85qzdwuqqqruya91jqsrhqtxykhxtks6sn0t1kn69g/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
 <script src="/admin/admin.js"></script>
 </body>
+
 </html>
