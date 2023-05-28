@@ -97,7 +97,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('posts.index') }}" class="nav-link">
-                                    <p>Редактировать статью</p>
+                                    <p>Редактировать пост</p>
                                 </a>
                             </li>
 
@@ -108,14 +108,14 @@
                         <a href="#" class="nav-link active">
                             <i class="nav-icon far fa-newspaper"></i>
                             <p>
-                                Создать/удалить статью
+                                Создать/удалить пост
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('posts.create') }}" class="nav-link">
-                                    <p>Создать статью</p>
+                                    <p>Создать пост</p>
                                 </a>
                             </li>
                             <li class="nav-item">

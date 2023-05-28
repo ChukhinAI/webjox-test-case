@@ -12,6 +12,12 @@
                     <h1 class="m-0">Добавить пост</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                        <h4 style="margin-left: 50%"><i class="icon fa fa-check"></i>{{ session('success') }}</h4>
+                </div>
+            @endif
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -31,17 +37,17 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Заголовок</label>
-                                <input type="text" name="title" class="form-control" id="exampleInputEmail1"
+                                <input type="text" name="title" class="form-control" id="exampleInputEmail1" required
                                        placeholder="Введите заголовок поста">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Изображение</label>
-                                <input type="text" name="preview_img" class="form-control" id="preview_img"
+                                <input type="text" name="preview_img" class="form-control" id="preview_img" required
                                        placeholder="Введите путь к изображению">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Текст поста</label>
-                                <input type="text" name="post_text" class="form-control" id="post_main_text"
+                                <input type="text" name="post_text" class="form-control" id="post_main_text" required
                                        placeholder="Введите текст поста">
                             </div>
                             <div class="form-group">
