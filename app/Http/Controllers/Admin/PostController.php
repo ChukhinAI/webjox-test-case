@@ -30,17 +30,26 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $new_post = new Post();
-        $new_post->id = Post::all()->count() + 1;
+        $new_post->id = Post::all()->count() + 1; // разумеется, что под нагрузкой такой финт не пройдет
         $new_post->post_title = $request->title;
         $new_post->preview_img = $request->preview_img;
         $new_post->img = $request->preview_img;
         $new_post->text = $request->post_text;
-        $new_post->cat_id = $request->post_cat;
+        //$new_post->cat_id = $request->post_cat; // ok
+        $new_post->cat_id = $request->category_id; // ok
         $new_post->creator_id = $request->creator_id;
-        $pub_status = $request->publishing_status;
-        $new_post->published = ($pub_status == 0 || $pub_status == 1) ? $pub_status : 0; // если ввели не 0||1, то 0
+        //$pub_status = $request->publishing_status;
+        //$new_post->published = ($pub_status == 0 || $pub_status == 1) ? $pub_status : 0; // если ввели не 0||1, то 0
+
+        $new_post->published = $request->pub_status_select;
+        //dd($pub_status_select);
         $new_post->save();
-        //return dd($new_post->id);
+
+        //return $request->category_id;
+        //dd($request->category_id);
+
+        //return redirect()->back()->withSuccess("Пост был создан");
+        return redirect()->back()->with("success", "новый пост создан!");
     }
 
     /**

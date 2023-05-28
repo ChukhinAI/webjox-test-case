@@ -45,19 +45,27 @@
                                        placeholder="Введите текст поста">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Категория</label>
-                                <input type="number" name="post_cat" class="form-control" id="post_main_text"
-                                       placeholder="1-мемы, 2-пейзажи">
+                                <label for="exampleInputEmail1">Категория</label><br/>
+                                <select name="category_id" required>
+                                    <option value="">Выберите значение</option>
+                                    <option value="1">мемы</option>
+                                    <option value="2">пейзажи</option>
+                                    <option value="3">другое</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1" display: hidden>Создатель</label>
                                 <input type="text" name="creator_id" class="form-control" id="post_main_text" readonly
                                        placeholder="идентификатор создателя" display: hidden value="{{ Auth::user()->id }}">
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1" >Видимость</label>
-                                <input type="number" name="publishing_status" class="form-control" id="post_main_text"
-                                       placeholder="1-пост видят все, 0-только админы">
+                                <label for="exampleInputEmail1" >Видимость</label><br/>
+                                <select name="pub_status_select" required="required">
+                                    <option value="">Выберите значение</option>
+                                    <option value="1">пост видят все</option>
+                                    <option value="0">пост видят только администраторы и модераторы</option>
+                                </select>
                             </div>
                         </div>
                         <!-- /.card-body -->
