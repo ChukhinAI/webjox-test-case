@@ -36,3 +36,10 @@ Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::resource('posts', PostController::class);
 });
 
+/*
+Route::middleware(['role:moder'])->prefix('admin_panel')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
+
+    Route::resource('posts', PostController::class);
+});
+*/

@@ -13,8 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //$new_post = new Post();
-        $posts = Post::where('published', '=', '1')->orderBy('created_at', 'desc')->get();
+        //$posts = Post::where('published', '=', '1')->orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('admin.category.index', ['posts' => $posts]);
     }
 
@@ -32,7 +32,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $new_post = new Post();
-        $new_post->id = Post::all()->count() + 1; // разумеется, что под нагрузкой такой финт не пройдет
+        //$new_post->id = Post::all()->count() + 1; // разумеется, что под нагрузкой такой финт не пройдет
+        $new_post->id = Post::max('id') + 1; // разумеется, что под нагрузкой такой финт не пройдет, но уже чуть лучше
         $new_post->post_title = $request->title;
         $new_post->preview_img = $request->preview_img;
         $new_post->img = $request->preview_img;
