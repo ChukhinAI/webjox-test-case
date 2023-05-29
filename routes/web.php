@@ -17,15 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    //return view('welcome');
+    return redirect('/home');
+})->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
+Route::get('/admin_panel', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin')->middleware(['role:admin|moderator']);
+Route::get('/register', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('register')->middleware(['role:admin']);
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index')->middleware(['role:admin|moderator']);
 Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware(['role:admin|moderator']);

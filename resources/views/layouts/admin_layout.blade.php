@@ -49,7 +49,7 @@
                     <img src="/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="{{ route('login') }}" class="d-block">{{ Auth::user()->name }}</a>
+                    <a href="{{Route('login')}}" class="d-block">{{ Auth::user()->name }}</a>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
            with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a href="{{ route('homeAdmin') }}" class="nav-link">
+                        <a href="{{ route('home') }}" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Главная
