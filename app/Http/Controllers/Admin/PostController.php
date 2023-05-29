@@ -31,8 +31,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'string|max:255',
+            'post_text' => 'string|max:2000',
+        ]);
+        //dd($validated);
+
         $new_post = new Post();
-        //$new_post->id = Post::all()->count() + 1; // разумеется, что под нагрузкой такой финт не пройдет
         $new_post->id = Post::max('id') + 1; // разумеется, что под нагрузкой такой финт не пройдет, но уже чуть лучше
         $new_post->post_title = $request->title;
         $new_post->preview_img = $request->preview_img;
