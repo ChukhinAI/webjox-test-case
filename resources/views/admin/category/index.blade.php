@@ -92,8 +92,16 @@
                                 </td>
                             </tr>
                         @endforeach
-
-
+                        {{ $posts->links() }}
+                        <div class="row m-auto">количество постов на странице {{$posts_per_page}}</div>
+                        <input type="number" name="posts_per_page" class="form-control" id="posts_per_page"
+                               placeholder="количество постов на странице" value="{{ $posts_per_page }}">
+<!--
+                        <form action="{{ route('posts.index') }}" method="post">
+                            <input type="number" name="posts_per_page" class="form-control" id="posts_per_page"
+                                   placeholder="количество постов на странице" value="5">
+                        </form>
+-->
                         </tbody>
                     </table>
                 </div>

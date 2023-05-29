@@ -41,9 +41,22 @@
                                        placeholder="Введите заголовок поста">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Изображение</label>
-                                <input type="text" name="preview_img" class="form-control" id="preview_img" required
-                                       placeholder="Введите путь к изображению">
+                                <label for="exampleInputEmail1">Изображение для превью</label>
+                                <select name="preview_img" required>
+                                    <option value="">Выберите значение</option>
+                                    <option value="1">мемы</option>
+                                    <option value="2">пейзажи</option>
+                                    <option value="3">другое</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Изображение для поста</label>
+                                <select name="img" required>
+                                    <option value="">Выберите значение</option>
+                                    <option value="1">мемы</option>
+                                    <option value="2">пейзажи</option>
+                                    <option value="3">другое</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Текст поста</label>

@@ -13,9 +13,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        $pages_count = 5;
         //$posts = Post::where('published', '=', '1')->orderBy('created_at', 'desc')->get();
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('admin.category.index', ['posts' => $posts]);
+        $posts = Post::orderBy('created_at', 'desc')->simplePaginate($pages_count);
+        return view('admin.category.index', ['posts' => $posts, 'posts_per_page' => $pages_count]);
     }
 
     /**
@@ -41,7 +42,8 @@ class PostController extends Controller
         $new_post->id = Post::max('id') + 1; // разумеется, что под нагрузкой такой финт не пройдет, но уже чуть лучше
         $new_post->post_title = $request->title;
         $new_post->preview_img = $request->preview_img;
-        $new_post->img = $request->preview_img;
+        $new_post->preview_img = $request->preview_img;
+        $new_post->img = $request->img;
         $new_post->text = $request->post_text;
         //$new_post->cat_id = $request->post_cat; // ok
         $new_post->cat_id = $request->category_id; // ok
